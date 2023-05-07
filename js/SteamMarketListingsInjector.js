@@ -1,22 +1,11 @@
-var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-        if (!mutation.addedNodes) return
-        for (let i = 0; i < mutation.addedNodes.length; i++) {
-            let node = mutation.addedNodes[i];
-            if (node.tagName === "SCRIPT") {
-                if (node.getAttribute("src") != null && node.getAttribute("src").includes("economy.js")) {
-                    let element = document.createElement("script");
-                    element.setAttribute("src", chrome.runtime.getURL("js/OverwrittenFunction.js"));
-                    document.head.appendChild(element);
-                }
-            }
-        }
-    })
-})
+function injectScript(src) {
+    const script = document.createElement('script');
+    script.src = chrome.runtime.getURL(src);
+    (document.head||document.documentElement).prepend(script);
+}
 
-observer.observe(document, {
-    childList: true
-    , subtree: true
-    , attributes: false
-    , characterData: false
-})
+setTimeout(() => {injectScript('js/OverwrittenFunction.js')}, 0);
+
+
+// Currentyly this doesen't work because the script is being injected too late, TODO: Try methods listed below
+// https://stackoverflow.com/questions/9515704/access-variables-and-functions-defined-in-page-context-using-a-content-script/9517879#9517879

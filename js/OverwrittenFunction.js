@@ -1,5 +1,5 @@
 function CreatePriceHistoryGraph(line1, numYAxisTicks, strFormatPrefix, strFormatSuffix )
-{
+{   
     var plot = $J.jqplot('pricehistory', [line1], {
         title:{text: 'Median Sale Prices', textAlign: 'left' },
         gridPadding:{left: 45, right:45, top:25},
