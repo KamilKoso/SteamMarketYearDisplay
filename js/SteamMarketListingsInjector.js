@@ -6,7 +6,7 @@ var observer = new MutationObserver(function (mutations) {
             if (node.tagName === "SCRIPT") {
                 if (node.getAttribute("src") != null && node.getAttribute("src").includes("economy.js")) {
                     let element = document.createElement("script");
-                    element.setAttribute("src", chrome.extension.getURL("js/OverwrittenFunction.js"));
+                    element.setAttribute("src", chrome.runtime.getURL("js/OverwrittenFunction.js"));
                     document.head.appendChild(element);
                 }
             }

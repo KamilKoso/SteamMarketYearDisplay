@@ -1,4 +1,4 @@
-function CreatePriceHistoryGraph( line1, numYAxisTicks, strFormatPrefix, strFormatSuffix )
+function CreatePriceHistoryGraph(line1, numYAxisTicks, strFormatPrefix, strFormatSuffix )
 {
     var plot = $J.jqplot('pricehistory', [line1], {
         title:{text: 'Median Sale Prices', textAlign: 'left' },
