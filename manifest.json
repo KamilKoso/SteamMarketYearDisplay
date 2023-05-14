@@ -16,7 +16,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["js/OverwrittenFunction.js"],
+      "resources": [ "js/barRenderer.js", "js/OverwrittenFunction.js"],
       "matches": ["https://steamcommunity.com/*"]
     }
   ]
